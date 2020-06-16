@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown UNBK</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">    
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+<body>  
+    <div class="jumbotron">
+        <h4>TOKEN</h4>        
+        <h1 id="t_token">--</h1>
+        <h5>Waktu anda kurang :</h5>
+        <br>
+        <div class="row">
+            <div class="offset-sm-3"></div>
+            <div class="col-sm-2">
+                <h2 id="t_jam">0</h2>
+                <h4>Jam shoot</h4>
+            </div>
+            <div class="col-sm-2">
+                <h2 id="t_menit">0</h2>
+                <h4>Menit</h4>
+            </div>
+            <div class="col-sm-2">
+                <h2 id="t_detik">0</h2>
+                <h4>Detik</h4>
+            </div>                        
+        </div>    
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal1" title="Set Token" onclick="setVal()" id="btn-token">
+      <i class="fa fa-key"></i>
+    </button>
+    <br><br>
+        <!-- Button trigger modal -->
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">
+      Set Token dan Waktu
+    </button>
+
+    </div>
+    <div id="particles-js" style="z-index: 2;"></div>  
+      
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 5;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color: grey;">Set Token dan Waktu</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+              <div class="col-sm-6">                  
+                  <div class="form-group">
+                        <label for="">Jam</label>
+                      <input type="number" id="jam" class="form-control">
+                  </div>
+              </div>
+              <div class="col-sm-6">                
+                <div class="form-group">
+                    <label for="">Menit</label>
+                    <input type="number" id="menit" class="form-control">
+                </div>
+              </div>
+          </div>
+          <div class="row">    
+              <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="">Token</label>
+                    <input type="text" id="token" class="form-control">
+                </div>
+              </div>                    
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary" onclick="setTimer()">Set</button>
+        </div>
+      </div>
+    </div>
+  </div>        
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 5;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color: grey;">Set Token</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">          
+          <div class="row">    
+              <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="">Token</label>
+                    <input type="text" id="set_token" class="form-control">
+                </div>
+              </div>                    
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary" onclick="setToken()">Set</button>
+        </div>
+      </div>
+    </div>
+  </div>        
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">              
+            <img class="d-block w-100" src="img/slide_2.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="img/slide_1.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="img/slide_3.jpg" alt="Third slide">
+          </div>
+        </div>                
+      </div>      
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/set_particle.js"></script>
+    <script>
+      $('#btn-token').hide();
+        $('.carousel').carousel({
+        interval: 5000
+        });
+        // function testAnim(x) {
+        //         $('.modal .modal-dialog').attr('class', 'modal-dialog  ' + x + '  animated');
+        //     };
+        //     $('#exampleModal').on('show.bs.modal', function (e) {           
+        //         testAnim("bounceIn");
+        //     })
+        //     $('#exampleModal').on('hide.bs.modal', function (e) {          
+        //         testAnim("bounceOut");
+        //     });        
+    </script>  
+    <script>      
+        function setVal() {
+          var text = $('#t_token').text();
+          $('#set_token').val(text);
+        }
+        function setToken() {                    
+          $('#t_token').text($('#set_token').val());          
+          $('#exampleModal1').modal('hide');
+        }
+        var fixDate = new Date();
+        
+        function setTimer(){
+            $('#exampleModal').modal('hide');
+            $('#t_token').text($('#token').val());            
+            $('#btn-token').show();
+        clearInterval(x);
+        // Set the date we're counting down to
+        var jam = $('#jam').val();
+        var menit = $('#menit').val();
+        
+        if(jam == ""){
+          jam = 0;    
+        }
+        if(menit == ""){
+          menit = 0;
+        }
+        var countDownDate = new Date()
+        countDownDate.setHours(countDownDate.getHours() + parseInt(jam));
+        countDownDate.setMinutes(countDownDate.getMinutes() + parseInt(menit));
+        
+        fixDate = countDownDate.getTime();
+        x = setInterval(function() {
+          intervalSet();      
+        }, 1000);
+        }
+        
+        function intervalSet(){
+        // Get today's date and time
+          var now = new Date().getTime();
+            
+          // Find the distance between now and the count down date
+          var distance = fixDate - now;
+            
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+          // Output the result in an element with id="demo"
+        //   document.getElementById("demo").innerHTML = hours + "h "
+        //   + minutes + "m " + seconds + "s ";
+        // $('t_jam').text(hours);
+        // $('t_menit').text(minutes);
+        // $('t_detik').text(minutes);
+            document.getElementById("t_jam").innerHTML = hours;
+            document.getElementById("t_menit").innerHTML = minutes;
+            document.getElementById("t_detik").innerHTML = seconds;           
+            
+            if (distance < 0) {
+            clearInterval(x);    
+            document.getElementById("t_jam").innerHTML = "0";
+            document.getElementById("t_menit").innerHTML = "0";
+            document.getElementById("t_detik").innerHTML = "0";
+          }
+          // If the count down is over, write some text   
+        }
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+          intervalSet();      
+        }, 1000);
+        
+        
+        </script>
+</body>
+</html>

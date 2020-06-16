@@ -1,0 +1,84 @@
+/* ---- reset ---- */
+
+body {
+    margin: 0;
+    font: normal 75% Arial, Helvetica, sans-serif;
+    color: white;
+  }
+
+  .jumbotron{
+      position: absolute;
+      z-index: 3;      
+      background: none;
+      width: 100%;
+      text-align: center;
+  }
+
+  .jumbotron h1{
+      font-size: 180px;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: -5px;      
+  }
+  
+  .jumbotron h2{
+    font-size: 100px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: -5px;      
+    }
+    
+    .col-sm-2{
+        border-left: 1px dotted #fff;        
+        border-right: 1px dotted #fff;
+    }  
+
+    .modal.fade{
+        opacity:1;
+      }
+      .modal.fade .modal-dialog {
+         -webkit-transform: translate(0);
+         -moz-transform: translate(0);
+         transform: translate(0);
+      }
+
+    .modal-backdrop.show{
+        z-index: 3;
+    }    
+
+    .btn-default{
+        background: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+    }
+
+    .btn-default:hover{
+        background: transparent;
+        border: 1px solid #fff;
+        color: #fff;        
+    }
+
+    label{
+        color: grey;
+    }
+    
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  }
+  /* ---- particles.js container ---- */
+  
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.7;
+  }
+
+  .carousel-item{
+      width: 100%;
+      height: 100vh;
+  }
+  
+  
